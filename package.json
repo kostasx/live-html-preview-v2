@@ -2,7 +2,7 @@
 	"name": "live-html-previewer-v2",
 	"displayName": "Live HTML Previewer v2",
 	"description": "Preview your html files in VS Code itself.",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"icon": "icon.png",
 	"publisher": "kostasx",
 	"engines": {
