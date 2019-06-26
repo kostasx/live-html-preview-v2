@@ -1,0 +1,87 @@
+{
+	"name": "live-html-previewer-v2",
+	"displayName": "Live HTML Previewer v2",
+	"description": "Preview your html files in VS Code itself.",
+	"version": "0.1.0",
+	"icon": "icon.png",
+	"publisher": "kostasx",
+	"engines": {
+		"vscode": "^1.35.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kostasx/live-html-preview-v2.git"
+	},
+	"activationEvents": [
+		"onLanguage:html"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.sidePreview",
+				"title": "Show side preview"
+			},
+			{
+				"command": "extension.fullPreview",
+				"title": "Show full preview"
+			},
+			{
+				"command": "extension.inBrowser",
+				"title": "Open in browser"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "resourceLangId == html",
+					"command": "extension.inBrowser",
+					"group": "navigation"
+				}
+			],
+			"editor/context": [
+				{
+					"when": "resourceLangId == html",
+					"command": "extension.inBrowser",
+					"group": "navigation"
+				}
+			]
+		},
+		"keybindings": [
+			{
+				"command": "extension.sidePreview",
+				"key": "ctrl+q s",
+				"mac": "ctrl+q s",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.fullPreview",
+				"key": "ctrl+q f",
+				"mac": "ctrl+q f",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.inBrowser",
+				"key": "ctrl+q w",
+				"mac": "ctrl+q w",
+				"when": "editorTextFocus"
+			}
+		]
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^10.12.21",
+		"eslint": "^5.13.0",
+		"opn": "^4.0.2",
+		"path": "^0.12.7",
+		"typescript": "^3.3.1",
+		"vscode": "^1.1.28"
+	}
+}
