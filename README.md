@@ -3,7 +3,7 @@ This extension allows you to preview your html files in VS Code itself. Use it t
 ##### Note: Javascript is not supported in preview
 ### Features
 #### Side preview with live editing
-![IDE](Resources/Images/SidePreview.gif)
+![IDE](Resources/images/SidePreview.gif)
 #### Full page preview
 #### Open html file in browser
 ### Usage
