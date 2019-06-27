@@ -19,3 +19,10 @@ This is a beta version that uses the new WebView API and is being released for t
     * right click in the editor/side bar, select "Open in browser"
 
 If a HTML file is open, a message is displayed on the Status Bar in bottom left. Click on it for side preview.
+
+### Development
+
+    Clone repo
+
+    `$ npm install`
+    `$ npm run compile`

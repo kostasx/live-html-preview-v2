@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var ErrorMessages;
 (function (ErrorMessages) {
     ErrorMessages.NO_HTML = "The current editor doesn't show a HTML document.";
