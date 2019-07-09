@@ -1,8 +1,8 @@
 {
 	"name": "live-html-previewer-v2",
-	"displayName": "Live HTML Previewer v2",
-	"description": "Preview your html files in VS Code itself.",
-	"version": "0.1.3",
+	"displayName": "Live HTML & JS Previewer v2",
+	"description": "Preview your HTML & JS files in VSCode itself.",
+	"version": "0.1.4",
 	"icon": "icon.png",
 	"publisher": "kostasx",
 	"engines": {
@@ -23,15 +23,15 @@
 		"commands": [
 			{
 				"command": "extension.sidePreview",
-				"title": "Show side preview"
+				"title": "Show HTML side preview"
 			},
 			{
 				"command": "extension.fullPreview",
-				"title": "Show full preview"
+				"title": "Show HTML full preview"
 			},
 			{
 				"command": "extension.inBrowser",
-				"title": "Open in browser"
+				"title": "Open HTML in browser"
 			}
 		],
 		"menus": {
