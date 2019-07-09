@@ -9,14 +9,18 @@ class Utilities {
     handleTextDocumentChange() {
         this.panel.webview.html = this.editor.document.getText();
     }
+    getDocumentType() {
+        let languageId = vscode.window.activeTextEditor.document.languageId.toLowerCase();
+        return languageId;
+    }
     checkDocumentIsHTML(showWarning) {
-        let result = vscode.window.activeTextEditor.document.languageId.toLowerCase() === "html";
+        let result = this.getDocumentType() === "html";
         if (!result && showWarning) {
             vscode.window.showInformationMessage(Constants.ErrorMessages.NO_HTML);
         }
         return result;
     }
-    init(viewColumn) {
+    initHTMLPreview(viewColumn) {
         let proceed = this.checkDocumentIsHTML(true);
         if (proceed) {
             // Create and show a new webview

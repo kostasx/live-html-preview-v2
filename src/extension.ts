@@ -16,12 +16,12 @@ export function activate(context: vscode.ExtensionContext) {
     // Register the commands that are provided to the user
     let disposableSidePreview = vscode.commands.registerCommand('extension.sidePreview', () => {
 
-        utilities.init(vscode.ViewColumn.Two);
+        utilities.initHTMLPreview(vscode.ViewColumn.Two);
 
     });
     let disposableStandalonePreview = vscode.commands.registerCommand('extension.fullPreview', () => {
 
-        utilities.init(vscode.ViewColumn.One);
+        utilities.initHTMLPreview(vscode.ViewColumn.One);
 
     });
 

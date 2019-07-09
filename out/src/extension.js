@@ -14,10 +14,10 @@ function activate(context) {
     let previewUri = vscode.Uri.parse(Constants.ExtensionConstants.PREVIEW_URI);
     // Register the commands that are provided to the user
     let disposableSidePreview = vscode.commands.registerCommand('extension.sidePreview', () => {
-        utilities.init(vscode.ViewColumn.Two);
+        utilities.initHTMLPreview(vscode.ViewColumn.Two);
     });
     let disposableStandalonePreview = vscode.commands.registerCommand('extension.fullPreview', () => {
-        utilities.init(vscode.ViewColumn.One);
+        utilities.initHTMLPreview(vscode.ViewColumn.One);
     });
     let disposableInBrowser = vscode.commands.registerCommand("extension.inBrowser", () => {
         if (utilities.checkDocumentIsHTML(true)) {

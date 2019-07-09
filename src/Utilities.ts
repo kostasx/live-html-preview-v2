@@ -16,14 +16,20 @@ export default class Utilities {
 
     }
 
+    getDocumentType(): string {
+        let languageId = vscode.window.activeTextEditor.document.languageId.toLowerCase();
+        return languageId;
+    }
+
     checkDocumentIsHTML(showWarning: boolean): boolean {
-        let result = vscode.window.activeTextEditor.document.languageId.toLowerCase() === "html"
+        let result = this.getDocumentType() === "html";
         if (!result && showWarning) {
             vscode.window.showInformationMessage(Constants.ErrorMessages.NO_HTML);
         }
         return result;
     }
-    init(viewColumn: number) {
+
+    initHTMLPreview(viewColumn: number) {
         let proceed = this.checkDocumentIsHTML(true);
         if (proceed) {
 
