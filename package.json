@@ -16,11 +16,16 @@
 		"url": "https://github.com/kostasx/live-html-preview-v2.git"
 	},
 	"activationEvents": [
-		"onLanguage:html"
+		"onLanguage:html",
+		"onLanguage:javascript"
 	],
 	"main": "./out/src/extension",
 	"contributes": {
 		"commands": [
+			{
+				"command": "extension.sideJSFlowChart",
+				"title": "Show JS FlowChart (side preview)"
+			},
 			{
 				"command": "extension.sidePreview",
 				"title": "Show HTML side preview"
@@ -51,6 +56,12 @@
 			]
 		},
 		"keybindings": [
+			{
+				"command": "extension.sideJSFlowChart",
+				"key": "ctrl+q c",
+				"mac": "ctrl+q c",
+				"when": "editorTextFocus"
+			},
 			{
 				"command": "extension.sidePreview",
 				"key": "ctrl+q s",

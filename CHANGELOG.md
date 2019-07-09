@@ -6,6 +6,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [0.1.4]
 
+- Adding support for [JavaScript Flowchart](https://github.com/Bogdan-Lyashenko/js-code-to-svg-flowchart/) Preview
 - Updating Logo Icon to include JS
 
 ## [0.1.3]
