@@ -1,5 +1,5 @@
 # Live HTML & JS Previewer v2
-#### *(Version: 0.1.4)*
+#### *(Version: 0.1.5)*
 This extension allows you to:
 - Preview your html files in VS Code itself. Use it to quickly set the html and css right for your webpages.
 - Preview a [Flowchart](https://github.com/Bogdan-Lyashenko/js-code-to-svg-flowchart/) for your JavaScript code
