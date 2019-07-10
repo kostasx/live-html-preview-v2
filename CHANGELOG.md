@@ -4,6 +4,10 @@ All notable changes to the "live-html-previewer-v2" extension will be documented
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.1.6]
+
+- Cleaning up Extension from unused files (.ts, .js, etc.)
+
 ## [0.1.5]
 
 - Updating Flowchart code to include library as an npm module
