@@ -89,7 +89,8 @@
 	},
 	"dependencies": {
 		"opn": "^4.0.2",
-		"path": "^0.12.7"
+		"path": "^0.12.7",
+		"js2flowchart": "^1.1.7"
 	},
 	"devDependencies": {
 		"@types/mocha": "^2.2.32",
