@@ -1,6 +1,7 @@
 "use strict"
 import * as vscode from 'vscode';
 import * as Constants from './Constants'
+import * as js2flowchart from "js2flowchart";
 
 export default class Utilities {
 
@@ -20,27 +21,14 @@ export default class Utilities {
 
         this.editor = vscode.window.activeTextEditor;
         let currentJSContent = this.editor.document.getText();
+        let svg = js2flowchart.convertCodeToSvg( currentJSContent );
         this.panel.webview.html = `<html>
                         <head>
-                            <script src="https://bogdan-lyashenko.github.io/js-code-to-svg-flowchart/dist/js2flowchart.js"></script>
                             <style>body { background-color: white; color: black; }</style>
                         </head>
                         <body>
                             <h1>JavaScript FlowChart</h1>
-                            <div>
-                                <p id="svgImage"></p>
-                            </div>
-                            <script>
-                                const code = \`${currentJSContent}\`;
-                                const createFlowTreeBuilder = js2flowchart.createFlowTreeBuilder;
-                                const createSVGRender = js2flowchart.createSVGRender;
-                                const flowTreeBuilder = createFlowTreeBuilder();
-                                const svgRender = createSVGRender();
-                                const flowTree = flowTreeBuilder.build( code );
-                                const shapesTree = svgRender.buildShapesTree(flowTree);
-                                const svg = shapesTree.print();
-                                document.getElementById('svgImage').innerHTML = svg;                    
-                            </script>
+                            <div>${svg}</div>
                         </body>
                     </html>`;
 
