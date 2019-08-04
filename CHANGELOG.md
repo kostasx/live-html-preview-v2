@@ -4,6 +4,10 @@ All notable changes to the "live-html-previewer-v2" extension will be documented
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.1.7]
+
+- Fixing the "The current editor doesn't show a HTML document." error when clicking the JS Preview Available status button on a JS file.
+
 ## [0.1.6]
 
 - Cleaning up Extension from unused files (.ts, .js, etc.)
