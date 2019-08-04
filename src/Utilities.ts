@@ -86,6 +86,20 @@ export default class Utilities {
             // And set its HTML content
             this.editor = vscode.window.activeTextEditor;
             let currentHTMLContent = this.editor.document.getText();
+
+            /****** WORK IN PROGRESS: Parse HTML for local resources: *****/
+            // REFERENCES: https://github.com/microsoft/vscode-extension-samples/blob/master/webview-sample/src/extension.ts#L163
+            /*
+            let rx = /<\s*link[^>]*\s*href=["|']([a-zA-Z0-9-\/\.]*)["|']\s*.*?\/?>/gm;
+            let match;
+            let output = "";
+            while ( match = rx.exec( currentHTMLContent ) ){
+                output += match[1] + "\r\n" ;
+            }
+            vscode.window.showInformationMessage( output );
+            */
+            /****** WORK IN PROGRESS: Parse HTML for local resources: *****/
+
             this.panel.webview.html = currentHTMLContent;
 
             vscode.workspace.onDidChangeTextDocument(this.handleTextDocumentChange.bind(this));
