@@ -28,12 +28,14 @@ export default class StatusBarItem {
         if ( this.utilities.checkDocumentIsHTML(false) ) {
 
             this.statusBarItem.text = Constants.ExtensionConstants.STATUS_BAR_HTML_TEXT;
+            this.statusBarItem.command = "extension.sidePreview";
             this.statusBarItem.show();
-
-        // Update status if a JS file:
+            
+            // Update status if a JS file:
         } else if ( this.utilities.getDocumentType() === "javascript" ){
-
+            
             this.statusBarItem.text = Constants.ExtensionConstants.STATUS_BAR_JS_TEXT;
+            this.statusBarItem.command = "extension.sideJSFlowChart";
             this.statusBarItem.show();
 
         } else {
