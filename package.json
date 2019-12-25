@@ -2,7 +2,7 @@
 	"name": "live-html-previewer-v2",
 	"displayName": "Live HTML & JS Previewer v2",
 	"description": "Preview your HTML & JS files in VSCode itself.",
-	"version": "0.1.8",
+	"version": "0.1.9",
 	"icon": "icon.png",
 	"publisher": "kostasx",
 	"engines": {
@@ -80,7 +80,19 @@
 				"mac": "ctrl+q w",
 				"when": "editorTextFocus"
 			}
-		]
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Live HTML Previewer v2",
+			"properties": {
+				"vscode.liveHtmlPreviewerV2.disableWebViewStyling": {
+					"type": "boolean",
+					"default": false,
+					"description": "Controls whether the default WebView CSS styling will be applied. When a dark theme has been selected in VSCode, it means that it will also be applied to the preview WebViews. If you want to disable this behavior, toggle this setting."
+				}
+			}
+		}
+
 	},
 	"scripts": {
 		"vscode:prepublish": "tsc -p ./",
@@ -98,5 +110,10 @@
 		"eslint": "^5.13.0",
 		"typescript": "^2.0.3",
 		"vscode": "^1.1.28"
+	},
+	"__metadata": {
+		"id": "e4176bbc-17eb-479b-8d37-3669684ad2b6",
+		"publisherDisplayName": "Kostas Minaidis",
+		"publisherId": "789cf2b3-0004-46b6-afe5-61f8aac2dbfd"
 	}
 }

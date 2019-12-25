@@ -7,8 +7,14 @@ class Utilities {
     //returns true if an html document is open
     constructor() { }
     ;
-    handleTextDocumentChange() {
-        this.panel.webview.html = this.editor.document.getText();
+    handleTextDocumentChange(disableWebViewStyling) {
+        let currentHTMLContent = this.editor.document.getText();
+        // Disable default WebView Styling (body.vscode-dark, etc.)
+        if (disableWebViewStyling) {
+            currentHTMLContent = currentHTMLContent.replace("<head>", "<head><style>body{background-color:white;}</style>");
+            currentHTMLContent = currentHTMLContent.replace("</body>", "<script>document.querySelector('style#_defaultStyles').remove();</script></body>");
+        }
+        this.panel.webview.html = currentHTMLContent;
     }
     updateJSFlowChart() {
         this.editor = vscode.window.activeTextEditor;
@@ -54,9 +60,15 @@ class Utilities {
                 // Enable scripts in the webview
                 enableScripts: true
             });
+            // const onDiskPath = vscode.Uri.file(path.join(
+            //     __dirname, 'styles.css'));
+            // const webSrc = onDiskPath.with({ scheme: 'vscode-resource' });
+            const configurationNode = vscode.workspace.getConfiguration(`vscode.liveHtmlPreviewerV2`);
+            const disableWebViewStyling = configurationNode.get("disableWebViewStyling", false);
             // And set its HTML content
             this.editor = vscode.window.activeTextEditor;
-            let currentHTMLContent = this.editor.document.getText();
+            this.handleTextDocumentChange.call(this, disableWebViewStyling);
+            vscode.workspace.onDidChangeTextDocument(this.handleTextDocumentChange.bind(this, disableWebViewStyling));
             /****** WORK IN PROGRESS: Parse HTML for local resources: *****/
             // REFERENCES: https://github.com/microsoft/vscode-extension-samples/blob/master/webview-sample/src/extension.ts#L163
             /*
@@ -69,8 +81,6 @@ class Utilities {
             vscode.window.showInformationMessage( output );
             */
             /****** WORK IN PROGRESS: Parse HTML for local resources: *****/
-            this.panel.webview.html = currentHTMLContent;
-            vscode.workspace.onDidChangeTextDocument(this.handleTextDocumentChange.bind(this));
             // this.panel.onDidDispose(
             //     () => { /* When the panel is closed... */ },
             //     null,
